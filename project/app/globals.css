@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-[#F4F1EA] text-[#172734] antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-slower {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes reverse-spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes reverse-spin-slower {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 30s linear infinite;
+  }
+
+  .animate-spin-slower {
+    animation: spin-slower 45s linear infinite;
+  }
+
+  .animate-reverse-spin-slow {
+    animation: reverse-spin-slow 30s linear infinite;
+  }
+
+  .animate-reverse-spin-slower {
+    animation: reverse-spin-slower 45s linear infinite;
+  }
+
+  @keyframes network-route-draw {
+    from {
+      stroke-dashoffset: 1500;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes network-route-flow {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -50;
+    }
+  }
+
+  @keyframes network-node-pulse {
+    0%, 100% {
+      opacity: 0.42;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.70;
+      transform: scale(1.12);
+    }
+  }
+
+  @keyframes flow-dot-glow {
+    0%, 100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
+
+  .network-route {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+  }
+
+  .network-route-1 {
+    animation: network-route-draw 16s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  .network-route-2 {
+    animation: network-route-draw 18s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+
+  .network-route-3 {
+    animation: network-route-draw 15s ease-in-out infinite;
+    animation-delay: 5s;
+  }
+
+  .network-route-4 {
+    animation: network-route-draw 17s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .network-route-5 {
+    animation: network-route-draw 14s ease-in-out infinite;
+    animation-delay: 4s;
+  }
+
+  .network-route-flow {
+    stroke-dasharray: 10 15;
+    animation: network-route-flow 12s linear infinite;
+  }
+
+  .network-node-pulse-1 {
+    animation: network-node-pulse 3.4s ease-in-out infinite;
+    animation-delay: 0s;
+    transform-origin: center;
+  }
+
+  .network-node-pulse-2 {
+    animation: network-node-pulse 4.2s ease-in-out infinite;
+    animation-delay: 1.5s;
+    transform-origin: center;
+  }
+
+  .network-node-pulse-3 {
+    animation: network-node-pulse 3.8s ease-in-out infinite;
+    animation-delay: 2.8s;
+    transform-origin: center;
+  }
+
+  .network-node-pulse-4 {
+    animation: network-node-pulse 4.5s ease-in-out infinite;
+    animation-delay: 0.8s;
+    transform-origin: center;
+  }
+
+  .network-flow-dot-1 {
+    animation: flow-dot-glow 3s ease-in-out infinite;
+  }
+
+  .network-flow-dot-2 {
+    animation: flow-dot-glow 2.8s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .network-flow-dot-3 {
+    animation: flow-dot-glow 3.2s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  @media (max-width: 768px) {
+    .network-route,
+    .network-node,
+    .network-node-pulse,
+    .network-flow-dot {
+      opacity: 0.5;
+    }
+  }
+}
